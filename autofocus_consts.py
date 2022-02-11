@@ -12,7 +12,10 @@
 # the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
 # either express or implied. See the License for the specific language governing permissions
 # and limitations under the License.
+AF_JSON_HOSTNAME = "hostname"
+AF_JSON_VERIFY_CERT = "verify_cert"
 AF_JSON_API_KEY = "api_key"
+AF_JSON_TIMEOUT = "timeout"
 AF_JSON_SCOPE = "scope"
 AF_JSON_SIZE = "size"
 AF_JSON_FROM = "from"
