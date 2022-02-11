@@ -28,14 +28,10 @@ from phantom.base_connector import BaseConnector
 # Local imports
 from autofocus_consts import *
 
-try:
-    from urllib.parse import unquote
-except:
-    from urllib import unquote
+from urllib.parse import unquote
 
 import os
 
-os.sys.path.insert(0, '{}/pan-python/lib'.format(os.path.dirname(os.path.abspath(__file__))))  # noqa
 import pan.afapi  # noqa
 
 
@@ -174,9 +170,13 @@ class AutoFocusConnector(BaseConnector):
         return phantom.APP_SUCCESS
 
     def _init_api(self, action_result):
+        hostname = self.get_config()[AF_JSON_HOSTNAME]
         api_key = self.get_config()[AF_JSON_API_KEY]
+        timeout = self.get_config()[AF_JSON_TIMEOUT]
+        verify_cert = self.get_config()[AF_JSON_VERIFY_CERT]
+
         try:
-            self._afapi = pan.afapi.PanAFapi(panrc_tag="autofocus", api_key=api_key)  # pylint: disable=E1101
+            self._afapi = pan.afapi.PanAFapi(panrc_tag="autofocus", api_key=api_key, hostname=hostname, timeout=timeout, verify_cert=verify_cert)  # pylint: disable=E1101
         except Exception as e:
             return action_result.set_status(phantom.APP_ERROR, self._get_error_message_from_exception(e))
         return phantom.APP_SUCCESS
@@ -199,12 +199,16 @@ class AutoFocusConnector(BaseConnector):
         try:
             # Truthfully I'm not sure what could cause either of these first two loops to iterate more than once
             # But they return lists so it must be possible somehow
+
+            self.debug_print("Start retrieving samples search results")
             for r in self._afapi.samples_search_results(data=body):
+                self.debug_print("Total hits: {}".format(r.json.get('total', -1)))
                 for i in r.json.get('hits', []):
+                    self.debug_print("Retrieving hits from samples search results")
                     if 'tag' in i.get('_source'):
                         for tag in i.get('_source', {}).get('tag', []):
                             tag_set.add(tag)
-
+            self.debug_print("Finished retrieving samples search results, start retrieving tag information")
             for tag in tag_set:
                 r = self._afapi.tag(tagname=tag)
                 if not self._validate_api_call(r, action_result):

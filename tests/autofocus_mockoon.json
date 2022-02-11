@@ -1,0 +1,144 @@
+{
+  "uuid": "c146022c-b4cb-47b2-8a7a-e824e20955f5",
+  "lastMigration": 18,
+  "name": "Autofocus",
+  "endpointPrefix": "api/v1.0/",
+  "latency": 0,
+  "port": 3003,
+  "hostname": "0.0.0.0",
+  "routes": [
+    {
+      "uuid": "2f3159c3-a83a-4480-8794-fc2859cc5d0c",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "export/",
+      "responses": [
+        {
+          "uuid": "20725a3f-fa6c-43da-8023-aa668a7af970",
+          "body": "{\n  \"bucket_info\": {\n    \"daily_points_remaining\": 1,\n    \"daily_points\": 100\n  }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "e1287b7b-6c99-4e0e-ae8e-1947c9c86ef7",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "samples/search/",
+      "responses": [
+        {
+          "uuid": "f7fbe64a-bc17-44af-95ed-a8f64e26acab",
+          "body": "{ \n  \"in_progress\":true, \n  \"af_cookie\":\"870218db-27cd-4614-ac36-1d87f3f0016e\", \n  \"bucket_info\":{ \n    \"minute_points\":200, \n    \"daily_points\":25000, \n    \"minute_points_remaining\":190, \n    \"daily_points_remaining\":24114, \n    \"minute_bucket_start\":\"2015-09-04 18:51:39\", \n    \"daily_bucket_start\":\"2015-09-04 13:58:42\" \n  } \n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "42a35718-fce7-4cc8-874d-254bd5163335",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "tag/:id",
+      "responses": [
+        {
+          "uuid": "a822b0b7-abca-4d76-911b-f698ed49149c",
+          "body": "{ \n  \"tag\":{ \n    \"support_id\":1, \n    \"tag_name\": \"asdasd\", \n    \"public_tag_name\":\"{{urlParam 'id'}}\", \n    \"tag_definition_scope_id\":4, \n    \"tag_definition_scope\":\"unit42\", \n    \"tag_definition_status_id\":1, \n    \"tag_definition_status\":\"enabled\", \n    \"count\":9279, \n    \"lasthit\":\"2015-12-11 15:06:33\", \n    \"description\":\"CryptoWall is a ransomware family which encrypts files on the system and then demands a ransom from the victim before releasing the encryption key. \\n\\nMore information about CryptoWall is available at the following URLs:\\n\\nhttp://researchcenter.paloaltonetworks.com/2014/10/tracking-new-ransomware-cryptowall-2-0/\\nhttp://malware.dontneedcoffee.com/2015/01/guess-whos-back-again-cryptowall-30.html\", \n    \"customer_name\":\"Palo Alto Networks Unit42\", \n    \"refs\":null, \n    \"tag_class_id\":null, \n    \"report_actions\":null, \n    \"source\":null, \n    \"comments\":[ \n \n    ] \n  }, \n  \"tag_searches\":[ \n    { \n      \"count\":9279, \n      \"lasthit\":\"2015-12-11 15:06:33\", \n      \"search_name\":\"1e3f1a50ae9547166d\", \n      \"tag_definition_search_status_id\":1, \n      \"tag_definition_search_status\":\"enabled\", \n      \"ui_search_definition\":\"{\\\"operator\\\":\\\"Any\\\",\\\"children\\\":[{\\\"field\\\":\\\"sample.tasks.file\\\",\\\"operator\\\":\\\"contains\\\",\\\"value\\\":\\\"3353616\\\\3353616.exe\\\"},{\\\"field\\\":\\\"sample.tasks.file\\\",\\\"operator\\\":\\\"contains\\\",\\\"value\\\":\\\"Users\\\\Administrator\\\\AppData\\\\Local\\\\Microsoft\\\\Internet Explorer\\\\DECRYPT_INSTRUCTION.TXT\\\"},{\\\"field\\\":\\\"sample.tasks.file\\\",\\\"operator\\\":\\\"contains\\\",\\\"value\\\":\\\"HELP_DECRYPT.PNG\\\"},{\\\"field\\\":\\\"sample.tasks.file\\\",\\\"operator\\\":\\\"contains\\\",\\\"value\\\":\\\"HELP_DECRYPT.URL\\\"},{\\\"field\\\":\\\"sample.tasks.file\\\",\\\"operator\\\":\\\"contains\\\",\\\"value\\\":\\\"HELP_DECRYPT.TXT\\\"},{\\\"field\\\":\\\"sample.tasks.file\\\",\\\"operator\\\":\\\"contains\\\",\\\"value\\\":\\\"HELP_DECRYPT.HTML\\\"}],\\\"field\\\":\\\"sample.sha256\\\"}\" \n    } \n  ], \n  \"aliases\":[ \n \n  ], \n  \"related_tags\":[ \n \n  ], \n  \"bucket_info\":{ \n    \"minute_points\":200, \n    \"daily_points\":25000, \n    \"minute_points_remaining\":196, \n    \"daily_points_remaining\":24139, \n    \"minute_bucket_start\":\"2015-12-14 15:46:06\", \n    \"daily_bucket_start\":\"2015-12-14 13:06:01\" \n  } \n} \n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "115452f0-b4b9-48ea-80e0-e17f5f48965f",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "samples/results/:id",
+      "responses": [
+        {
+          "uuid": "502568b1-ca01-4607-879d-676139c80737",
+          "body": "{ \n  \"total\": 32811214, \n  \"hits\": [ \n{ \n      \"_id\": \"c8fac378e1af77b7e0b7025ceaa1edcdd402bee53a7200a38f0c3878b5bc9309\", \n      \"_source\": { \n        \"app_packagename\": \"com.ooedsqz.ihma.fwfl\", \n        \"ssdeep\": \"12288:/wxZYgTlF0oikgCTp58auFJMV2XzoZWnuV/YBH:/wxS8FvilK3YFJKAupO\", \n        \"create_date\": \"2016-10-14T10:21:25\", \n        \"sha256\": \"c8fac378e1af77b7e0b7025ceaa1edcdd402bee53a7200a38f0c3878b5bc9309\", \n        \"md5\": \"1400058f42f283e9c25e15d6bf28266c\", \n        \"filetype\": \"Android APK\", \n        \"sha1\": \"6961b6eadc2b577d10597cd45ce9a83d84f39a8e\", \n        \"app_name\": \"com.system.ojjnippitr\", \n        \"malware\": 1, \n        \"finish_date\": \"2016-10-14T10:26:18\", \n        \"size\": 437266,\n        \"tag\": [\"my_tag\", \"my_other_tag\"],\n        \"region\": [ \n          \"us\" \n        ] \n      }, \n      \"visible\": true \n    },\n    { \n      \"_id\": \"c8fac378e1af77b7e0b7025ceaa1edcdd402bee53a7200a38f0c3878b5bc9310\", \n      \"_source\": { \n        \"app_packagename\": \"com.ooedsqz.ihma.fwfl\", \n        \"ssdeep\": \"12288:/wxZYgTlF0oikgCTp58auFJMV2XzoZWnuV/YBH:/wxS8FvilK3YFJKAupO\", \n        \"create_date\": \"2016-10-14T10:21:25\", \n        \"sha256\": \"c8fac378e1af77b7e0b7025ceaa1edcdd402bee53a7200a38f0c3878b5bc9309\", \n        \"md5\": \"1400058f42f283e9c25e15d6bf28266c\", \n        \"filetype\": \"Android APK\", \n        \"sha1\": \"6961b6eadc2b577d10597cd45ce9a83d84f39a8e\", \n        \"app_name\": \"com.system.ojjnippitr\", \n        \"malware\": 1, \n        \"finish_date\": \"2016-10-14T10:26:18\", \n        \"size\": 437266,\n        \"tag\": [\"my_tag\", \"some_random_tag\"],\n        \"region\": [ \n          \"us\" \n        ] \n      }, \n      \"visible\": true \n    }\n], \n  \"took\": 4744, \n  \"af_message\": \"complete\", \n  \"af_in_progress\": false, \n  \"af_complete_percentage\": 100, \n  \"af_cookie\": \"53185127-3668-4d7d-85aa-61ef17e8158f+0\", \n  \"bucket_info\": { \n    \"minute_points\": 200, \n    \"daily_points\": 25000, \n    \"minute_points_remaining\": 189, \n    \"daily_points_remaining\": 24941, \n    \"minute_bucket_start\": \"2015-09-12 23:42:42\", \n    \"daily_bucket_start\": \"2015-09-12 14:47:43\" \n  } \n} \n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "https": true,
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ]
+}
